@@ -8,7 +8,7 @@
 
 Install
 ```bash
-go get -u github.com/gflydev/mail@v1.0.0
+go get -u github.com/gflydev/mail@v1.0.1
 ```
 
 Quick usage `main.go`

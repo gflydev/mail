@@ -35,14 +35,12 @@ func Send(envelop Envelop) {
 		utils.Getenv("MAIL_NAME", "gFly - No Reply"),
 		utils.Getenv("MAIL_SENDER", "no-reply@gfly.dev"),
 	)
-	fmt.Println(e.From)
 
 	if len(envelop.ReplyTo) == 0 {
 		e.ReplyTo = []string{utils.Getenv("MAIL_SENDER", "no-reply@gfly.dev")}
 	} else {
 		e.ReplyTo = envelop.ReplyTo
 	}
-	fmt.Println(e.ReplyTo)
 
 	if len(envelop.Bcc) > 0 {
 		e.Bcc = envelop.Bcc
@@ -61,8 +59,6 @@ func Send(envelop Envelop) {
 	address := fmt.Sprintf("%s:%d", host, utils.Getenv("MAIL_PORT", 587))
 	username := utils.Getenv("MAIL_USERNAME", "")
 	password := utils.Getenv("MAIL_PASSWORD", "")
-
-	fmt.Println(host)
 
 	try.Perform(func() {
 		var err error
